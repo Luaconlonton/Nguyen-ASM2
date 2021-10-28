@@ -88,6 +88,11 @@ app.post('/doEdit', async(req,res)=>{
     let newValues = {$set : {productName: name, price:priceInput, AgeRange:Age}};
     var ObjectID = require('mongodb').ObjectID;
     let condition = {"_id" : ObjectID(id)};
+        if (name = "Robot")
+        {
+            document.write("không thể sửa sản phẩm này");
+            break;
+        }
 
     let client = await MongoClient.connect(url);
     let dbo = client.db("ASM2");
